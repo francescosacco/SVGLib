@@ -29,7 +29,7 @@ SVGLibRet_t SVGLib_createHandler( void ** handler , char * fname , uint32_t size
     return( ret ) ;
 }
 
-SVGLibRet_t SVGLib_retangle( void * handler , uint32_t x , uint32_t y , uint32_t width , uint32_t height , uint32_t strokeColor , uint32_t stokewidth , uint32_t fillColor )
+SVGLibRet_t SVGLib_retangle( void * handler , uint32_t x , uint32_t y , uint32_t width , uint32_t height , uint32_t strokeColor , uint32_t strokeWidth , uint32_t fillColor )
 {
     SVGLibRet_t ret ;
     FILE * file ;
@@ -38,7 +38,7 @@ SVGLibRet_t SVGLib_retangle( void * handler , uint32_t x , uint32_t y , uint32_t
     {
         file = ( FILE * ) handler ;
         
-        fprintf( file , "    <rect x=\"%u\" y=\"%u\" width=\"%u\" height=\"%u\" stroke-width=\"%u\" " , x , y , width , height , stokewidth ) ;
+        fprintf( file , "    <rect x=\"%u\" y=\"%u\" width=\"%u\" height=\"%u\" stroke-width=\"%u\" " , x , y , width , height , strokeWidth ) ;
 
         if( SVGLIB_NOCOLOR != fillColor )
         {
@@ -63,7 +63,7 @@ SVGLibRet_t SVGLib_retangle( void * handler , uint32_t x , uint32_t y , uint32_t
 }
 
 
-SVGLibRet_t SVGLib_circle( void * handler , uint32_t x , uint32_t y , uint32_t radius , uint32_t strokeColor , uint32_t stokewidth , uint32_t fillColor )
+SVGLibRet_t SVGLib_circle( void * handler , uint32_t x , uint32_t y , uint32_t radius , uint32_t strokeColor , uint32_t strokeWidth , uint32_t fillColor )
 {
     SVGLibRet_t ret ;
     FILE * file ;
@@ -72,7 +72,7 @@ SVGLibRet_t SVGLib_circle( void * handler , uint32_t x , uint32_t y , uint32_t r
     {
         file = ( FILE * ) handler ;
         
-        fprintf( file , "    <circle cx=\"%u\" cy=\"%u\" r=\"%u\" stroke-width=\"%u\" " , x , y , radius , stokewidth ) ;
+        fprintf( file , "    <circle cx=\"%u\" cy=\"%u\" r=\"%u\" stroke-width=\"%u\" " , x , y , radius , strokeWidth ) ;
 
         if( SVGLIB_NOCOLOR != fillColor )
         {
@@ -96,7 +96,7 @@ SVGLibRet_t SVGLib_circle( void * handler , uint32_t x , uint32_t y , uint32_t r
     return( ret ) ;
 }
 
-SVGLibRet_t SVGLib_ellipse( void * handler , uint32_t x , uint32_t y , uint32_t radius_x , uint32_t radius_y , uint32_t strokeColor , uint32_t stokewidth , uint32_t fillColor )
+SVGLibRet_t SVGLib_ellipse( void * handler , uint32_t x , uint32_t y , uint32_t radius_x , uint32_t radius_y , uint32_t strokeColor , uint32_t strokeWidth , uint32_t fillColor )
 {
     SVGLibRet_t ret ;
     FILE * file ;
@@ -105,7 +105,7 @@ SVGLibRet_t SVGLib_ellipse( void * handler , uint32_t x , uint32_t y , uint32_t 
     {
         file = ( FILE * ) handler ;
         
-        fprintf( file , "    <ellipse cx=\"%u\" cy=\"%u\" rx=\"%u\" ry=\"%u\" stroke-width=\"%u\" " , x , y , radius_x , radius_y , stokewidth ) ;
+        fprintf( file , "    <ellipse cx=\"%u\" cy=\"%u\" rx=\"%u\" ry=\"%u\" stroke-width=\"%u\" " , x , y , radius_x , radius_y , strokeWidth ) ;
 
         if( SVGLIB_NOCOLOR != fillColor )
         {
@@ -130,7 +130,7 @@ SVGLibRet_t SVGLib_ellipse( void * handler , uint32_t x , uint32_t y , uint32_t 
 }
 
 
-SVGLibRet_t SVGLib_line( void * handler , uint32_t x1 , uint32_t y1 , uint32_t x2 , uint32_t y2 , uint32_t strokeColor , uint32_t stokewidth )
+SVGLibRet_t SVGLib_line( void * handler , uint32_t x1 , uint32_t y1 , uint32_t x2 , uint32_t y2 , uint32_t strokeColor , uint32_t strokeWidth )
 {
     SVGLibRet_t ret ;
     FILE * file ;
@@ -139,7 +139,7 @@ SVGLibRet_t SVGLib_line( void * handler , uint32_t x1 , uint32_t y1 , uint32_t x
     {
         file = ( FILE * ) handler ;
         
-        fprintf( file , "    <line x1=\"%u\" y1=\"%u\" x2=\"%u\" y2=\"%u\" stroke-width=\"%u\" " , x1 , y1 , x2 , y2 , stokewidth ) ;
+        fprintf( file , "    <line x1=\"%u\" y1=\"%u\" x2=\"%u\" y2=\"%u\" stroke-width=\"%u\" " , x1 , y1 , x2 , y2 , strokeWidth ) ;
 
         if( SVGLIB_NOCOLOR != strokeColor )
         {
