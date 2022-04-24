@@ -50,7 +50,7 @@ SVGLibRet_t SVGLib_retangle( void * handler , uint32_t x , uint32_t y , uint32_t
             fprintf( file , "stroke=\"#%06X\" " , SVGLIB_COLORMASK( strokeColor ) ) ;
         }
         
-        fprintf( file , " />\n" ) ;
+        fprintf( file , "/>\n" ) ;
 
         ret = SVGLib_ok ;
     }
@@ -84,7 +84,7 @@ SVGLibRet_t SVGLib_circle( void * handler , uint32_t x , uint32_t y , uint32_t r
             fprintf( file , "stroke=\"#%06X\" " , SVGLIB_COLORMASK( strokeColor ) ) ;
         }
         
-        fprintf( file , " />\n" ) ;
+        fprintf( file , "/>\n" ) ;
 
         ret = SVGLib_ok ;
     }
@@ -117,7 +117,7 @@ SVGLibRet_t SVGLib_ellipse( void * handler , uint32_t x , uint32_t y , uint32_t 
             fprintf( file , "stroke=\"#%06X\" " , SVGLIB_COLORMASK( strokeColor ) ) ;
         }
         
-        fprintf( file , " />\n" ) ;
+        fprintf( file , "/>\n" ) ;
 
         ret = SVGLib_ok ;
     }
@@ -146,7 +146,36 @@ SVGLibRet_t SVGLib_line( void * handler , uint32_t x1 , uint32_t y1 , uint32_t x
             fprintf( file , "stroke=\"#%06X\" " , SVGLIB_COLORMASK( strokeColor ) ) ;
         }
         
-        fprintf( file , " />\n" ) ;
+        fprintf( file , "/>\n" ) ;
+
+        ret = SVGLib_ok ;
+    }
+    else
+    {
+        ret = SVGLib_err_handler ;
+    }
+
+    return( ret ) ;
+}
+
+SVGLibRet_t SVGLib_text( void * handler , uint32_t x , uint32_t y , char * font , uint32_t fontSize , uint32_t fillColor , char * text )
+{
+    SVGLibRet_t ret ;
+    FILE * file ;
+    
+    if( NULL != handler )
+    {
+        file = ( FILE * ) handler ;
+
+        fprintf( file , "    <text x=\"%u\" y=\"%u\" font-family=\"%s\" font-size=\"%u\" " , x , y , font , fontSize ) ;
+        if( SVGLIB_NOCOLOR != fillColor )
+        {
+            fprintf( file , "fill=\"#%06X\" " , SVGLIB_COLORMASK( fillColor ) ) ;
+        }
+        fprintf( file , ">" ) ;
+                
+        fprintf( file , "%s" , text ) ;
+        fprintf( file , "</text>\n" ) ;
 
         ret = SVGLib_ok ;
     }

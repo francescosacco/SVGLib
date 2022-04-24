@@ -113,6 +113,8 @@ SVGLibRet_t SVGLib_ellipse( void * handler , uint32_t x , uint32_t y , uint32_t 
  **/
 SVGLibRet_t SVGLib_line( void * handler , uint32_t x1 , uint32_t y1 , uint32_t x2 , uint32_t y2 , uint32_t strokeColor , uint32_t strokeWidth ) ;
 
+SVGLibRet_t SVGLib_text( void * handler , uint32_t x , uint32_t y , char * font , uint32_t fontSize , uint32_t fillColor , char * text ) ;
+
 /**
  * @brief Close the handler.
  *
