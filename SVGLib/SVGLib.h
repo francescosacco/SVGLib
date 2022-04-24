@@ -114,6 +114,23 @@ SVGLibRet_t SVGLib_ellipse( void * handler , uint32_t x , uint32_t y , uint32_t 
 SVGLibRet_t SVGLib_line( void * handler , uint32_t x1 , uint32_t y1 , uint32_t x2 , uint32_t y2 , uint32_t strokeColor , uint32_t strokeWidth ) ;
 
 /**
+ * @brief Creates a text.
+ *
+ * This function creates a text, starting in the x,y position,
+ * with the font and size defined.
+ *
+ * @param [in] handler      Handler of the SVG file.
+ * @param [in] x            X start position, in pixels.
+ * @param [in] y            Y start position, in pixels.
+ * @param [in] font         Font name, eg. "Arial" or "Courier".
+ * @param [in] fontSize     Font size.
+ * @param [in] fillColor    Text color in RGB (24 bits).
+ * @param [in] text         String with the text to be printed.
+ * @return Error code, based in the SVGLibRet_t enumeration type.
+ **/
+SVGLibRet_t SVGLib_text( void * handler , uint32_t x , uint32_t y , char * font , uint32_t fontSize , uint32_t fillColor , char * text ) ;
+
+/**
  * @brief Close the handler.
  *
  * This function close and save the handler data.
